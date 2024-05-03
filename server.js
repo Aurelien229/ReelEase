@@ -1,10 +1,10 @@
 const express = require('express');
-const cors = require('cors'); // Importez le middleware CORS
+const cors = require('cors');
 const axios = require('axios');
 const app = express();
 
 
-// Autorisez toutes les origines (à des fins de développement, vous pouvez restreindre les origines en production)
+
 app.use(cors());
 
 
@@ -21,7 +21,7 @@ app.get('/api/popular-movies', async (req, res) => {
   }
 });
 
-// Route pour récupérer les détails d'un film spécifique depuis TMDB
+
 app.get('/api/movie/:id', async (req, res) => {
   const movieId = req.params.id;
   try {

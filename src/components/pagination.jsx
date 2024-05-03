@@ -1,7 +1,8 @@
+// Pagination.jsx
 import React, { useState, useEffect } from 'react';
 import Card from './card.jsx';
-import BeforeImg from '../assets/img/left-arrow-solid-120.png';
-import AfterImg from '../assets/img/right-arrow-solid-120.png';
+import BeforeImg from '../assets/img/left-arrow-solid-60.png';
+import AfterImg from '../assets/img/right-arrow-solid-60.png';
 
 function Pagination() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -39,10 +40,13 @@ function Pagination() {
             {movies && movies.map(movie => (
               <Card
                 key={movie.id}
+                id={movie.id}
                 title={movie.title}
                 adult={movie.adult}
                 release_date={movie.release_date}
                 poster_path={movie.poster_path}
+                overview={movie.overview}
+                vote_average={movie.vote_average}
               />
             ))}
           </div>
@@ -52,14 +56,14 @@ function Pagination() {
               onClick={goToPreviousPage}
               className=""
             >
-             <img src={BeforeImg } alt="before"/>
+             <img src={BeforeImg} alt="before" />
             </button>
             <button
               disabled={currentPage === totalPages}
               onClick={goToNextPage}
               className=""
             >
-             <img src={AfterImg } alt="after"/>
+             <img src={AfterImg} alt="after"/>
             </button>
           </div>
         </div>
@@ -67,4 +71,3 @@ function Pagination() {
 }
 
 export default Pagination;
-
