@@ -8,12 +8,12 @@ const app = express();
 app.use(cors());
 
 
-const API_KEY = 'a364dc0ee50f3aebe16042b7f05c109c';
+
 
 
 app.get('/api/popular-movies', async (req, res) => {
   try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`);
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_API_KEY}`);
     res.json(response.data);
   } catch (error) {
     console.error('Erreur lors de la récupération des films populaires :', error.message);

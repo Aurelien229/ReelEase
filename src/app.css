@@ -4,6 +4,13 @@
   font-weight: 400;
   font-style: normal;
 }
+.font_2 {
+  font-family: "Kolker Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
   .modal-content {
     position: relative;
   }
@@ -11,7 +18,7 @@
   .rating-circle {
     width: 60px;
     height: 60px;
-    background-color: #2092a4;
+    background-color: #000000;
     color: #ffffff;
     border-radius: 50%; 
     display: flex;
@@ -31,5 +38,28 @@
     z-index: 2; 
   }
   
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
   
+  .suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+  .form-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    flex-grow: 1;
+  }
+  
+  .search-button {
+    align-self: flex-start;
+  }
+  
+    
   

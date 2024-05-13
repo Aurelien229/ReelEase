@@ -8,12 +8,13 @@ import googleImg from '../assets/img/google-24.png';
 import Home from '../assets/img/envelope-regular-24.png';
 const Footer = () => {
     return (
-        <div className="bg-[#01030d] h-[350px] md:h-[250px]">
+        <div className="bg-[#01030d] h-[404px] md:h-[300px]">
             <div className=" container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="flex flex-col items-center justify-center h-full">
                     <div className="mb-4 py-10 md:mb-0 flex flex-col items-center text-center">
                         <p className="text-4xl p-1 mb-5 font_1 font-bold ">
-                            <span className="text-white">Reel</span>
+                            <span className="text-white text-8xl font_2">R</span>
+                            <span className="text-white">eel</span>
                             <span className="text-[#2092a4]">ease</span>
                         </p>
                         <img className="mr-1" src={Home} alt="Home" />

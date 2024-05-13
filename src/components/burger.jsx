@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <div className="flex items-center justify-between  py-8">
-    
+
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
@@ -37,13 +37,22 @@ export default function Header() {
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] font_1 text-3xl">
               <li className=" my-8 uppercase">
-                <a href="/about">About</a>
+                <a href="/about">
+                  <span className="text-[#2092a4] font_2 text-8xl font-bold">A</span>
+                  <span>bout</span>
+                </a>
               </li>
               <li className=" my-8 uppercase">
-                <a href="/contact">Contact</a>
+                <a href="/contact">
+                  <span className="text-[#2092a4] font_2 text-8xl font-bold">C</span>
+                  <span>ontact</span>
+                </a>
               </li>
               <li className=" my-8 uppercase">
-                <a href="/readme">Read me</a>
+                <a href="/readme">
+                  <span className="text-[#2092a4] font_2 text-8xl font-bold">R</span>
+                  <span>ead me</span>
+                </a>
               </li>
             </ul>
           </div>
