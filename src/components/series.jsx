@@ -1,65 +1,61 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from './components/navbar.jsx';
-import Footer from './components/footer.jsx';
-import Pagination from './components/pagination.jsx';
-import SearchBar from './components/searchbar.jsx';
-import Card from './components/card.jsx';
-import GenreFilter from './components/genreFilter.jsx';
-import LoadingPage from './components/loadingPage.jsx';
-import "./app.css";
 import axios from 'axios';
+import Navbar from './navbar';
+import Footer from './footer';
+import Pagination from './pagination';
+import SearchBar from './searchbar';
+import Card from './card';
+import TvGenreFilter from './tvGenreFilter';
+import LoadingPage from './loadingPage';
+import './app.css';
 
 const genresList = [
-  { id: '28', name: 'Action' },
-  { id: '12', name: 'Adventure' },
+  { id: '10759', name: 'Action & Adventure' },
   { id: '16', name: 'Animation' },
   { id: '35', name: 'Comedy' },
   { id: '80', name: 'Crime' },
   { id: '99', name: 'Documentary' },
   { id: '18', name: 'Drama' },
   { id: '10751', name: 'Family' },
-  { id: '14', name: 'Fantasy' },
-  { id: '36', name: 'History' },
-  { id: '27', name: 'Horror' },
-  { id: '10402', name: 'Music' },
+  { id: '10762', name: 'Kids' },
   { id: '9648', name: 'Mystery' },
-  { id: '10749', name: 'Romance' },
-  { id: '878', name: 'Science Fiction' },
-  { id: '10770', name: 'TV Movie' },
-  { id: '53', name: 'Thriller' },
-  { id: '10752', name: 'War' },
+  { id: '10763', name: 'News' },
+  { id: '10764', name: 'Reality' },
+  { id: '10765', name: 'Sci-Fi & Fantasy' },
+  { id: '10766', name: 'Soap' },
+  { id: '10767', name: 'Talk' },
+  { id: '10768', name: 'War & Politics' },
   { id: '37', name: 'Western' },
 ];
 
-
-function App() {
+function Series() {
   const [searchResults, setSearchResults] = useState([]);
   const [searched, setSearched] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState('');
-  const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!searched && !selectedGenre) {
-      fetchPopularMovies(currentPage);
+      fetchPopularSeries(currentPage);
     }
   }, [currentPage]);
 
-  const fetchPopularMovies = async (page) => {
+  const fetchPopularSeries = async (page) => {
     setIsLoading(true);
     try {
-      const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+      const response = await axios.get('https://api.themoviedb.org/3/tv/popular', {
         params: {
           api_key: import.meta.env.VITE_API_KEY,
           page: page
         }
       });
-      setMovies(response.data.results);
+      setSeries(response.data.results);
       setTotalPages(response.data.total_pages);
     } catch (error) {
-      console.error('Erreur lors de la récupération des films populaires :', error);
+      console.error('Error fetching popular series:', error);
     } finally {
       setIsLoading(false);
     }
@@ -69,7 +65,7 @@ function App() {
     setCurrentPage(1);
     setIsLoading(true);
     try {
-      const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
+      const response = await axios.get('https://api.themoviedb.org/3/search/tv', {
         params: {
           api_key: import.meta.env.VITE_API_KEY,
           query: query,
@@ -81,7 +77,7 @@ function App() {
       setSearched(true);
       setSelectedGenre('');
     } catch (error) {
-      console.error('Erreur lors de la recherche de films :', error);
+      console.error('Error searching for series:', error);
       setSearchResults([]);
       setSearched(true);
     } finally {
@@ -95,25 +91,25 @@ function App() {
     setIsLoading(true);
     if (genreId) {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/discover/movie', {
+        const response = await axios.get('https://api.themoviedb.org/3/discover/tv', {
           params: {
             api_key: import.meta.env.VITE_API_KEY,
             with_genres: genreId,
             page: 1
           }
         });
-        setMovies(response.data.results);
+        setSeries(response.data.results);
         setTotalPages(response.data.total_pages);
         setSearched(false);
       } catch (error) {
-        console.error('Erreur lors de la récupération des films par genre :', error);
-        setMovies([]);
+        console.error('Error fetching series by genre:', error);
+        setSeries([]);
       } finally {
         setIsLoading(false);
       }
     } else {
-      setMovies([]);
-      fetchPopularMovies(1);
+      setSeries([]);
+      fetchPopularSeries(1);
     }
   };
 
@@ -122,23 +118,23 @@ function App() {
     setIsLoading(true);
     if (selectedGenre) {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/discover/movie', {
+        const response = await axios.get('https://api.themoviedb.org/3/discover/tv', {
           params: {
             api_key: import.meta.env.VITE_API_KEY,
             with_genres: selectedGenre,
             page: page
           }
         });
-        setMovies(response.data.results);
+        setSeries(response.data.results);
       } catch (error) {
-        console.error('Erreur lors de la récupération des films par genre :', error);
-        setMovies([]);
+        console.error('Error fetching series by genre:', error);
+        setSeries([]);
       } finally {
         setIsLoading(false);
       }
     } else if (searched) {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
+        const response = await axios.get('https://api.themoviedb.org/3/search/tv', {
           params: {
             api_key: import.meta.env.VITE_API_KEY,
             query: searchResults.query,
@@ -147,13 +143,13 @@ function App() {
         });
         setSearchResults(response.data.results);
       } catch (error) {
-        console.error('Erreur lors de la recherche de films :', error);
+        console.error('Error searching for series:', error);
         setSearchResults([]);
       } finally {
         setIsLoading(false);
       }
     } else {
-      fetchPopularMovies(page);
+      fetchPopularSeries(page);
     }
   };
 
@@ -171,19 +167,19 @@ function App() {
       <Navbar />
       <div className="bg-white text-[#01030d] px-5">
         <div className="container mx-auto py-10">
-          <GenreFilter selectedGenre={selectedGenre} onGenreChange={handleGenreChange} />
+          <TvGenreFilter selectedGenre={selectedGenre} onGenreChange={handleGenreChange} />
           <SearchBar onSearch={handleSearch} />
           {searched && (
             <div>
-              <h2 className="text-4xl font-bold mb-8 font_1 ">
+              <h2 className="text-4xl font-bold mb-8 font_1">
                 <span className="text-[#2092a4] font_2 text-8xl font-bold">S</span>
                 <span>earch results</span>
               </h2>
               {searchResults.length > 0 ? (
                 <div className="w-full flex justify-center">
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {searchResults.map(movie => (
-                      <Card key={movie.id} {...movie} />
+                    {searchResults.map(series => (
+                      <Card key={series.id} {...series} />
                     ))}
                   </div>
                 </div>
@@ -195,15 +191,15 @@ function App() {
           {!searched && selectedGenre && (
             <div>
               <h2 className="text-4xl font-bold mb-8 font_1">
-                <span className="text-[#2092a4] font_2 text-8xl font-bold">M</span>
-                <span>ovies by genre</span>
+                <span className="text-[#2092a4] font_2 text-8xl font-bold">S</span>
+                <span>eries by genre</span>
               </h2>
               <p className="text-4xl mb-4 font_1 text-[#2092a4] font-bold">{getGenreName(selectedGenre)}</p>
-              {movies.length > 0 ? (
+              {series.length > 0 ? (
                 <div className="w-full flex justify-center">
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {movies.map(movie => (
-                      <Card key={movie.id} {...movie} />
+                    {series.map(series => (
+                      <Card key={series.id} {...series} />
                     ))}
                   </div>
                 </div>
@@ -217,18 +213,18 @@ function App() {
             <>
               <h2 className="text-4xl font-bold mb-8 font_1">
                 <span className="text-[#2092a4] font_2 text-8xl font-bold">P</span>
-                <span>opular movies</span>
+                <span>opular series</span>
               </h2>
               <div className="w-full flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                  {movies.map(movie => (
-                    <Card key={movie.id} {...movie} />
+                  {series.map(series => (
+                    <Card key={series.id} {...series} />
                   ))}
                 </div>
               </div>
             </>
           )}
-          {(movies.length > 0 || searchResults.length > 0) && (
+          {(series.length > 0 || searchResults.length > 0) && (
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -242,4 +238,4 @@ function App() {
   );
 }
 
-export default App;
+export default Series;

@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="flex items-center justify-between  py-8">
-
+    <div className="flex items-center justify-between py-8">
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
@@ -36,59 +36,68 @@ export default function Header() {
               </svg>
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] font_1 text-3xl">
-              <li className=" my-8 uppercase">
-                <a href="/about">
+              <li className="my-8 uppercase">
+                <Link to="/">
+                  <span className="text-[#2092a4] font_2 text-8xl font-bold">M</span>
+                  <span>ovies</span>
+                </Link>
+              </li>
+              <li className="my-8 uppercase">
+                <Link to="/series">
+                  <span className="text-[#2092a4] font_2 text-8xl font-bold">S</span>
+                  <span>eries</span>
+                </Link>
+              </li>
+              <li className="my-8 uppercase">
+                <Link to="/about">
                   <span className="text-[#2092a4] font_2 text-8xl font-bold">A</span>
                   <span>bout</span>
-                </a>
-              </li>
-              <li className=" my-8 uppercase">
-                <a href="/contact">
-                  <span className="text-[#2092a4] font_2 text-8xl font-bold">C</span>
-                  <span>ontact</span>
-                </a>
-              </li>
-              <li className=" my-8 uppercase">
-                <a href="/readme">
-                  <span className="text-[#2092a4] font_2 text-8xl font-bold">R</span>
-                  <span>ead me</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </section>
 
-        <ul className="DESKTOP-MENU hidden flex flex-col  lg:flex font_1 text-xl">
+        <ul className="DESKTOP-MENU hidden flex flex-row gap-8 lg:flex font_1 text-xl text-center">
           <li>
-            <a href="/about">About</a>
+            <Link to="/">
+              <span className="text-[#2092a4] font_2 text-5xl font-bold">M</span>
+              <span>ovies</span>
+            </Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link to="/series">
+              <span className="text-[#2092a4] font_2 text-5xl font-bold">S</span>
+              <span>eries</span>
+            </Link>
           </li>
           <li>
-            <a href="/readme">Read me</a>
+            <Link to="/about">
+              <span className="text-[#2092a4] font_2 text-5xl font-bold">A</span>
+              <span>bout</span>
+            </Link>
           </li>
         </ul>
       </nav>
       <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: black;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-    `}</style>
+        .hideMenuNav {
+          display: none;
+        }
+        .showMenuNav {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100vh;
+          top: 0;
+          left: 0;
+          background: black;
+          z-index: 10;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+      `}</style>
     </div>
   );
 }

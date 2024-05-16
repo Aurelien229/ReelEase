@@ -48,9 +48,6 @@ const SearchBar = ({ onSearch }) => {
     setSuggestions(uniqueSuggestions);
   };
   
-
-
-
   const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
@@ -65,9 +62,8 @@ const SearchBar = ({ onSearch }) => {
     placeholder: ' Search a movie...',
     value: query,
     onChange: handleChange,
-    className: 'bg-transparent border-none outline-none text-xl md:text-3xl flex items-center justify-center rounded-full p-2 shadow-[inset_2px_5px_10px_rgb(5,5,5)]',
+    className: 'bg-transparent border-none outline-none text-xl text-center text-gray-500 md:text-3xl flex items-center justify-center rounded-full p-2 shadow-[inset_2px_5px_10px_rgb(5,5,5)]',
   };
-
 
   return (
     <form className="bg-white py-10 font_1" onSubmit={handleSubmit}>
@@ -87,8 +83,7 @@ const SearchBar = ({ onSearch }) => {
         </div>
       </div>
     </form>
-  );
-  
+  );  
 };
 
 export default SearchBar;

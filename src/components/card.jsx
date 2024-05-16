@@ -45,7 +45,7 @@ const Card = ({ id, title, poster_path, overview, vote_average }) => {
           />
           {showModal && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
-            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-90 " onClick={closeModal}></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[#2092a4] opacity-90 " onClick={closeModal}></div>
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
               <div className="max-w-md mx-auto p-5 relative" style={{ overflowY: 'auto', width: '100%', maxWidth: '375px' }}>
                 <span className="close text-red-600 text-3xl" onClick={closeModal}>&times;</span><br/>

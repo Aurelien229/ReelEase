@@ -11,7 +11,7 @@ const MovieModal = ({ movie, onClose }) => {
           <p className="font-bold">{vote_average.toFixed(1)}</p>
         </div>
         <br /><br /><br />
-        <h2 className="font_1 text-center text-[#2092a4] text-lg">{title}</h2>
+        <h2 className="font_1 text-center text-black text-lg">{title}</h2>
         <div className="overview-wrapper" style={{ width: '335px' }}>
           <p className="text-white">{overview}</p>
         </div>

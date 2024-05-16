@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import MovieDetail from './components/movieDetail.jsx';
+import Series from './components/series.jsx';
 import App from './App.jsx';
+import ErrorPage from './components/errorPage.jsx';
 import './tailwind.css';
 import {
   createBrowserRouter,
@@ -13,11 +15,15 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <div>404</div>
+    errorElement: <ErrorPage />
   },
   {
     path: '/movie/:id',
     element: <MovieDetail />
+  },
+  {
+    path: '/series',
+    element: <Series />
   }
 ]);
 
