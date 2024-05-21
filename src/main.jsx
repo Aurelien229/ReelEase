@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import MovieDetail from './components/movieDetail.jsx';
 import SeriesDetail from './components/seriesDetail.jsx';
+import About from './components/about.jsx';
 import ActorDetail from './components/actorDetail.jsx';
 import Series from './components/series.jsx';
 import App from './App.jsx';
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/actor/:id',
     element: <ActorDetail />
+  },
+  {
+    path: '/about',
+    element: <About />
   },
   {
     path: '/series',

@@ -26,16 +26,21 @@ const Card = ({ id, title, poster_path, overview, vote_average }) => {
 
   return (
     <Link to={`/movie/${id}`} className="max-w-sm rounded-lg overflow-hidden shadow-xl bg-white relative">
-      {poster_path && (
-        <div>
-          <img
-            className="w-full cursor-pointer"
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-            alt={`Poster ${title}`}
-          />
-        </div>
-      )}
-    </Link>
+    {poster_path && (
+      <div style={{ width: '100%', height: '100%' }}>
+        <img
+          className="w-full h-full object-cover cursor-pointer"
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          alt={`Poster ${title}`}
+          style={{
+            borderRadius: '5px',
+            transition: 'transform 0.3s ease',
+          }}
+        />
+      </div>
+    )}
+  </Link>
+  
   );
 };
 
