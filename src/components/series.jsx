@@ -4,10 +4,10 @@ import Navbar from './navbar';
 import Footer from './footer';
 import Pagination from './pagination';
 import SearchBar from './searchbar';
-import Card from './card';
+import SeriesCard from './seriesCard';
 import TvGenreFilter from './tvGenreFilter';
 import LoadingPage from './loadingPage';
-import './app.css';
+import '../app.css';
 
 const genresList = [
   { id: '10759', name: 'Action & Adventure' },
@@ -179,7 +179,7 @@ function Series() {
                 <div className="w-full flex justify-center">
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {searchResults.map(series => (
-                      <Card key={series.id} {...series} />
+                      <SeriesCard key={series.id} {...series} />
                     ))}
                   </div>
                 </div>
@@ -199,7 +199,7 @@ function Series() {
                 <div className="w-full flex justify-center">
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {series.map(series => (
-                      <Card key={series.id} {...series} />
+                      <SeriesCard key={series.id} {...series} />
                     ))}
                   </div>
                 </div>
@@ -218,7 +218,7 @@ function Series() {
               <div className="w-full flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                   {series.map(series => (
-                    <Card key={series.id} {...series} />
+                    <SeriesCard key={series.id} {...series} />
                   ))}
                 </div>
               </div>

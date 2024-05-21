@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import MovieDetail from './components/movieDetail.jsx';
+import SeriesDetail from './components/seriesDetail.jsx';
+import ActorDetail from './components/actorDetail.jsx';
 import Series from './components/series.jsx';
 import App from './App.jsx';
 import ErrorPage from './components/errorPage.jsx';
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: '/movie/:id',
     element: <MovieDetail />
+  },
+  {
+    path: '/series/:id',
+    element: <SeriesDetail />
+  },
+  {
+    path: '/actor/:id',
+    element: <ActorDetail />
   },
   {
     path: '/series',
