@@ -32,10 +32,6 @@ const Card = ({ id, title, poster_path, overview, vote_average }) => {
           className="w-full h-full object-cover cursor-pointer"
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt={`Poster ${title}`}
-          style={{
-            borderRadius: '5px',
-            transition: 'transform 0.3s ease',
-          }}
         />
       </div>
     )}

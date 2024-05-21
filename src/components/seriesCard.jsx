@@ -27,9 +27,9 @@ const SeriesCard = ({ id, name, poster_path, overview, vote_average }) => {
   return (
     <Link to={`/series/${id}`} className="max-w-sm rounded-lg overflow-hidden shadow-xl bg-white relative">
       {poster_path && (
-        <div>
+        <div style={{ width: '100%', height: '100%' }}>
           <img
-            className="w-full cursor-pointer"
+            className="w-full h-full object-cover cursor-pointer"
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={`Poster ${name}`}
           />
