@@ -22,11 +22,12 @@ const About = () => {
                                 <p className="mb-4">Lieu de naissance: Charleroi, Belgique, Europe</p>
                                 <p className="text-xl text-[#2092a4] font-bold mb-4 md:text-3xl">A propos de moi</p>
                                 <p>
-                                    Hello, moi c'est Aurélien, un suis un passionné de technologie, de nature et de Cinéma.<br />
-                                    Ma carrière, initialement orientée dans l’HORECA, a récemment pris un tournant significatif vers le monde de la programmation et du développement.<br />
-
-                                    Ayant choisi de suivre ma passion pour l'informatique, j'ai entrepris une reconversion professionnelle afin de me spécialiser en développement web.<br />
-                                    Mon engagement envers cette transition est actuellement illustré par ma participation active au programme de formation rigoureux de BeCode Charleroi, où j'acquiers des compétences pratiques et une expertise technique dans divers langages de programmation, frameworks et technologies de pointe.
+                                    Bonjour, moi c'est Aurélien !<br />
+                                    Je suis passionné de technologie, de nature et de cinéma.<br />
+                                    Ma carrière, initialement orientée vers l’horeca, a récemment pris un tournant significatif vers le monde de la programmation et du développement.<br />
+                                    J'ai décidé de suivre ma passion pour l'informatique et de me reconvertir professionnellement pour me spécialiser en développement web.<br />
+                                    Mon engagement dans cette transition se manifeste par ma participation active au programme de formation rigoureux de BeCode Charleroi.<br />
+                                    J'y acquiers des compétences pratiques et une expertise technique dans divers langages de programmation, frameworks et technologies de pointe.
                                 </p>
                             </div>
                         </div>

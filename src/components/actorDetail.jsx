@@ -12,9 +12,6 @@ import LoadingPage from './loadingPage.jsx';
 import Card from './card.jsx';
 import 'swiper/swiper-bundle.css';
 
-
-
-
 const ActorDetail = () => {
   const { id } = useParams();
   const [actor, setActor] = useState(null);
@@ -61,15 +58,13 @@ const ActorDetail = () => {
         <div className="flex flex-col md:flex-row md:justify-center md:mb-4 md:space-x-4">
           <div className="md:w-1/3 md:pr-4 md:mb-4">
             <h1 className="text-2xl text-[#2092a4] font-bold mb-4 md:text-4xl">{name}</h1>
-            <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} className="mb-4 mx-auto" />
+            <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} className="mb-4 mx-auto actor-image" />
           </div>
           <div className="md:w-2/3 md:mb-4 md:flex md:flex-col md:justify-between">
             <div className="md:text-center">
-
               <div className="mb-4">
                 <p className="mb-2">Date de naissance: {birthday}</p>
                 <p className="mb-2">Lieu de naissance: {place_of_birth}</p>
-                
               </div>
             </div>
             <div className="mt-4 md:mt-0">
@@ -80,8 +75,12 @@ const ActorDetail = () => {
               autoplay={{ delay: 3500 }}
               grabCursor={true}
               centeredSlides={true}
-              slidesPerView={'auto'}
+              slidesPerView={1}
               initialSlide={middleIndex}
+              breakpoints={{
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
               coverflowEffect={{
                 stretch: 0,
                 rotate: 0,
@@ -91,7 +90,7 @@ const ActorDetail = () => {
               modules={[EffectCoverflow, Autoplay]}
             >
               {credits.cast.map((movie) => (
-                <SwiperSlide className="my-5 swiper" key={movie.id}>
+                <SwiperSlide className="my-5 swiper w-full h-full object-cover" key={movie.id}>
                   <Card
                     id={movie.id}
                     title={movie.title}
@@ -102,7 +101,6 @@ const ActorDetail = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-
           </div>
         </div>
       </div>

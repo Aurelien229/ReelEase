@@ -5,6 +5,7 @@ import SeriesDetail from './components/seriesDetail.jsx';
 import About from './components/about.jsx';
 import ActorDetail from './components/actorDetail.jsx';
 import Series from './components/series.jsx';
+import Movies from './components/movies.jsx';
 import App from './App.jsx';
 import ErrorPage from './components/errorPage.jsx';
 import './tailwind.css';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/series/:id',
     element: <SeriesDetail />
+  },
+  {
+    path: '/movies',
+    element: <Movies />
   },
   {
     path: '/actor/:id',

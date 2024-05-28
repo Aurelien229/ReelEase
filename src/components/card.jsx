@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import defaultPoster from '../assets/img/default-poster.jpg';
 
 const Card = ({ id, title, poster_path, overview, vote_average }) => {
   const [videoKey, setVideoKey] = useState(null);
@@ -26,18 +27,16 @@ const Card = ({ id, title, poster_path, overview, vote_average }) => {
 
   return (
     <Link to={`/movie/${id}`} className="max-w-sm rounded-lg overflow-hidden shadow-xl bg-white relative">
-    {poster_path && (
       <div style={{ width: '100%', height: '100%' }}>
         <img
           className="w-full h-full object-cover cursor-pointer"
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : defaultPoster}
           alt={`Poster ${title}`}
         />
       </div>
-    )}
-  </Link>
-  
+    </Link>
   );
 };
 
 export default Card;
+

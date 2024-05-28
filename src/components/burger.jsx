@@ -37,7 +37,7 @@ export default function Header() {
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] font_1 text-3xl">
               <li className="my-8 uppercase">
-                <Link to="/">
+                <Link to="/movies">
                   <span className="text-[#2092a4] font_2 text-8xl font-bold">M</span>
                   <span>ovies</span>
                 </Link>
@@ -60,7 +60,7 @@ export default function Header() {
 
         <ul className="DESKTOP-MENU hidden flex flex-row gap-8 lg:flex font_1 text-xl text-center">
           <li>
-            <Link to="/">
+            <Link to="/movies">
               <span className="text-[#2092a4] font_2 text-5xl font-bold">M</span>
               <span>ovies</span>
             </Link>
